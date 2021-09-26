@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="first_point_form">
+            <field name="name">first.point.form</field>
+            <field name="model">first.point</field>
+            <field name="arch" type="xml">
+                <form string="Orden de palabras">
+                    <header>
+                        <button name="action_txt_to_result" type="object" string="Calcular" class="oe_highlight" attrs="{'invisible': [('txt', '=', False)]}"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group colspan="12">
+                                <h1>
+                                    <group>
+                                        <field name="sequence"/>
+                                    </group>
+                                    <group>
+                                        <field name="name"  placeholder="Nombre del ejercicio"/>
+                                    </group>
+                                </h1>
+                            </group>
+                            <group>
+                                <field widget="binary"  filename="txt_filename" name="txt"/>
+                                <field widget="binary" name="result_file"/>
+                                <field name="txt_filename" force_save="1" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="result"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" />
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="fist_point_tree" model="ir.ui.view">
+            <field name="name">first.point.tree</field>
+            <field name="model">first.point</field>
+            <field name="arch" type="xml">
+                <tree string="Ejercicios creados">
+                    <field name="sequence"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_first_point" model="ir.actions.act_window">
+            <field name="name">Primer punto</field>
+            <field name="res_model">first.point</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_root_first_point"
+            name="Primer punto"
+            action="action_first_point"
+        />
+
+    </data>
+</odoo>

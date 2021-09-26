@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fourth_point,res_fourth_point,model_fourth_point,base.group_system,1,1,1,1
+access_product,res_product,model_product,base.group_system,1,1,1,1

@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="second_point_form">
+            <field name="name">complex.form</field>
+            <field name="model">complex</field>
+            <field name="arch" type="xml">
+                <form string="Complejos">
+                    <header>
+                        <button name="action_txt_to_result" type="object" string="Calcular" class="oe_highlight" attrs="{'invisible': [('first_value_a', '=', False),('first_value_b', '=', False),('second_value_b', '=', False),('second_value_a', '=', False)]}"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group col="12" colspan="12">
+                                <h1>
+                                    <group>
+                                        <field name="sequence"/>
+                                    </group>
+                                </h1>
+                            </group>
+                            <group col="12" colspan="12">
+                                <h3>Complejo A</h3>
+                                <h3>Complejo B</h3>
+                            </group>
+                            <group col="3">
+                                <field name="first_value_a" placeholder="Primer valor real" nolabel="1"/>
+                                <field name="second_value_a" placeholder="Segundo valor imaginario" nolabel="1"/>
+                            </group>
+                            <group col="3">
+                                <field name="first_value_b" placeholder="Primer valor real" nolabel="1"/>
+                                <field name="second_value_b" placeholder="Segundo valor imaginario" nolabel="1"/>
+                            </group>
+                            <group>
+                                <field name="sum"/>
+                                <field name="subtraction"/>
+                                <field name="multiplication"/>
+
+                            </group>
+                            <group>
+                                <field name="division"/>
+                                <field name="module_a"/>
+                                <field name="module_b"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" />
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="second_point_tree" model="ir.ui.view">
+            <field name="name">complex.tree</field>
+            <field name="model">complex</field>
+            <field name="arch" type="xml">
+                <tree string="Ejercicios creados">
+                    <field name="sequence"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_second_point" model="ir.actions.act_window">
+            <field name="name">Segundo punto</field>
+            <field name="res_model">complex</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_root_second_point"
+            name="Segundo punto"
+            action="action_second_point"
+        />
+
+    </data>
+</odoo>

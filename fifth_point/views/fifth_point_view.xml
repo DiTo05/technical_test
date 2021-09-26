@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="fifth_point_view" model="ir.ui.view">
+            <field name="name">res.partner.view.buttons</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="sale.res_partner_view_buttons" />
+            <field name="arch" type="xml">
+                <xpath expr="//page" position="after">
+                    <page name="page_spotify" string="API Spotify">
+                        <group>
+                            <field name="category_song_ids" widget="many2many_tags" required="1"/>
+                            <field name="fifth_point_ids" readonly="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="url"/>
+                                    <field name="category"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <menuitem
+            id="menu_root_fifth_point"
+            name="Quinto punto"
+            action="account.res_partner_action_customer"
+        />
+
+        <menuitem id="menu_fifth_point" name="Clientes" action="account.res_partner_action_customer" parent="menu_root_fifth_point"/>
+
+    </data>
+</odoo>

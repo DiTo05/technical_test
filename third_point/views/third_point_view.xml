@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="third_point_form">
+            <field name="name">third.point.form</field>
+            <field name="model">third.point</field>
+            <field name="arch" type="xml">
+                <form string="Operaciones fechas">
+                    <header>
+                        <button name="action_txt_to_result" type="object" string="Calcular" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group col="12" colspan="12">
+                                <h1>
+                                    <group>
+                                        <field name="sequence"/>
+                                    </group>
+                                </h1>
+                            </group>
+                            <group col="12" colspan="12">
+                                <h3>Fecha A</h3>
+                                <h3>Fecha B</h3>
+                            </group>
+                            <group col="3">
+                                <field name="first_date"/>
+                                <field name="first_tz"/>
+                                <field name="result_days"/>
+                                <field name="result_hours"/>
+                            </group>
+                            <group col="3">
+                                <field name="second_date"/>
+                                <field name="second_tz"/>
+                                <field name="result_dates"/>
+                                <field name="resource_calendar_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" />
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="third_point_tree" model="ir.ui.view">
+            <field name="name">third.point.tree</field>
+            <field name="model">third.point</field>
+            <field name="arch" type="xml">
+                <tree string="Ejercicios creados">
+                    <field name="sequence"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_third_point" model="ir.actions.act_window">
+            <field name="name">Tercer punto</field>
+            <field name="res_model">third.point</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_root_third_point"
+            name="Tercer punto"
+            action="action_third_point"
+        />
+
+    </data>
+</odoo>

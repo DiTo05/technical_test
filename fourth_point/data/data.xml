@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sequence_fourth_point" model="ir.sequence">
+            <field name="name">Secuencia cuarto punto</field>
+            <field name="code">fourth.point</field>
+            <field name="prefix">Ejercicio - </field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+        </record>
+    </data>
+</odoo>

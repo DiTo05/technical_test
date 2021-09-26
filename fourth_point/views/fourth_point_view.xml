@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="fourth_point_form">
+            <field name="name">fourth.point.form</field>
+            <field name="model">fourth.point</field>
+            <field name="arch" type="xml">
+                <form string="Diccionario productos">
+                    <header>
+                        <button name="action_txt_to_result" type="object" string="Calcular" class="oe_highlight" attrs="{'invisible':[('products_ids', '=', False)]}"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group colspan="12">
+                                <h1>
+                                    <group>
+                                        <field name="sequence"/>
+                                    </group>
+                                </h1>
+                            </group>
+                            <group colspan="12" col="12">
+                                <field name="products_ids" nolabel="1">
+                                    <tree editable="top">
+                                        <field name="name"/>
+                                        <field name="code"/>
+                                        <field name="marker"/>
+                                        <field name="category"/>
+                                        <field name="genders"/>
+                                    </tree>
+                                </field>
+                            </group>
+                            <group>
+                                <field name="result" force_save="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" />
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="fourth_point_tree" model="ir.ui.view">
+            <field name="name">fourth.point.tree</field>
+            <field name="model">fourth.point</field>
+            <field name="arch" type="xml">
+                <tree string="Ejercicios creados">
+                    <field name="sequence"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_fourth_point" model="ir.actions.act_window">
+            <field name="name">Cuarto punto</field>
+            <field name="res_model">fourth.point</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_root_fourth_point"
+            name="Cuarto punto"
+            action="action_fourth_point"
+        />
+
+    </data>
+</odoo>
